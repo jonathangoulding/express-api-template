@@ -1,15 +1,16 @@
-const { eventData } = require('../../database');
+const { getAllEvents, getEventById } = require('../../database');
 
-const get = (req, res) => res.json(eventData);
+const get = (req, res) => res.json(getAllEvents());
 
 const getById = (req, res) => {
   const { id } = req.params;
-  const itemById = eventData.find((event) => event.id === Number(id));
+  const itemById = getEventById(id);
 
   if (itemById === undefined) {
     res.status(404);
     return res.json({ message: 'Not Found' });
   }
+
   return res.json(itemById);
 };
 
