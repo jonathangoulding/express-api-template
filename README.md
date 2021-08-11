@@ -1,4 +1,7 @@
 # Express API Template
+
+[![Test](https://github.com/jonathangoulding/express-api-template/actions/workflows/test.yml/badge.svg)](https://github.com/jonathangoulding/express-api-template/actions/workflows/test.yml)
+
 An express api template using Jest. 
 
 The aim to show how test can be used in an express app. 
