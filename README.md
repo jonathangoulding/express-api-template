@@ -11,7 +11,7 @@ This repository demonstrates how a simple rest api written in [Node](https://nod
 
 #### Get all Events
 
-```http
+```
   GET /api/events
 ```
 
@@ -21,7 +21,7 @@ This repository demonstrates how a simple rest api written in [Node](https://nod
 
 #### Get an Event
 
-```http
+```
   GET /api/events/${id}
 ```
 
