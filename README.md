@@ -1,21 +1,80 @@
-# Express API Template
 
-[![Test](https://github.com/jonathangoulding/express-api-template/actions/workflows/test.yml/badge.svg)](https://github.com/jonathangoulding/express-api-template/actions/workflows/test.yml)
+# Express API
+<p align="left">
+<img src="https://github.com/jonathangoulding/express-api-template/actions/workflows/test.yml/badge.svg" />
+<img src="https://img.shields.io/github/package-json/v/jonathangoulding/express-api-template?style=plastic" />
+</p>
 
-An express api template using Jest. 
+This repository demonstrates how a simple rest api written in [Node](https://nodejs.org/en/) and [Express](https://expressjs.com/) can be tested using the [Jest Testing framework](https://jestjs.io/).
 
-The aim to show how test can be used in an express app. 
-A combination of component and unit tests are used in an attempt to show how mocking works.
+## API Reference
 
-## Testing
+#### Get all Events
 
-**Manual mocks are not used**
+```http
+  GET /api/events
+```
 
-### Unit test
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+|           | `string` | Returns the list of events|
 
-> Unit tests are test that mock dependencies. 
+#### Get an Event
 
-### Component Test
+```http
+  GET /api/events/${id}
+```
 
-> Component tests use the real dependencies where possible.
-> But will mock external calls such as API calls and use in memory databases
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of event to fetch |
+
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/jonathangoulding/express-api-template.git
+```
+
+Go to the project directory
+
+```bash
+  cd express-api-template
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
+
+Start the server using nodemon
+
+```bash
+  npm run dev
+```
+
+
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  npm run test
+```
+
+
+## Tech Stack
+
+**Server:** Node, Express, Jest
+
+  
