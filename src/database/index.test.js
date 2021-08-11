@@ -16,21 +16,39 @@ describe('#database', () => {
       });
     });
   });
-  describe.skip('#getEventById', () => {
+  describe('#getEventById', () => {
     describe('when the mock data is used', () => {
-      // Arrange
-      const id = 1;
-      const mockDataStub = [{ id: 1 }];
-      let response;
-      beforeEach(() => {
-        jest.mock('./MOCK_DATA.json', () => mockDataStub);
-        // Act
-        const { getEventById } = require('./index');
-        response = getEventById(id);
+      describe('and the id is present', () => {
+        // Arrange
+        const id = 1;
+        const mockDataStub = [{ id: 1 }];
+        let response;
+        beforeEach(() => {
+          jest.mock('./MOCK_DATA.json', () => mockDataStub);
+          // Act
+          const { getEventById } = require('./index');
+          response = getEventById(id);
+        });
+        // Assert
+        it('then should map the mock data to eventData', () => {
+          expect(response).toEqual({ id });
+        });
       });
-      // Assert
-      it('then should map the mock data to eventData', () => {
-        expect(response).toEqual({ id });
+      describe('and the id is NOT present', () => {
+        // Arrange
+        const id = 2;
+        const mockDataStub = [{ id: 1 }];
+        let response;
+        beforeEach(() => {
+          jest.mock('./MOCK_DATA.json', () => mockDataStub);
+          // Act
+          const { getEventById } = require('./index');
+          response = getEventById(id);
+        });
+        // Assert
+        it('then should map the mock data to eventData', () => {
+          expect(response).toBeUndefined();
+        });
       });
     });
   });
