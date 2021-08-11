@@ -2,17 +2,17 @@ describe('#database', () => {
   describe('#getAllEvents', () => {
     describe('when the mock data is used', () => {
       // Arrange
-      const mockDataStub = 'mock-data';
+      const mockData = 'mock-data';
       let response;
       beforeEach(() => {
-        jest.mock('./MOCK_DATA.json', () => mockDataStub);
+        jest.mock('./MOCK_DATA.json', () => mockData);
         // Act
         const { getAllEvents } = require('./index');
         response = getAllEvents();
       });
       // Assert
       it('then should map the mock data to eventData', () => {
-        expect(response).toEqual(mockDataStub);
+        expect(response).toEqual(mockData);
       });
     });
   });
@@ -21,10 +21,10 @@ describe('#database', () => {
       describe('and the id is present', () => {
         // Arrange
         const id = 1;
-        const mockDataStub = [{ id: 1 }];
+        const mockData = [{ id: 1 }];
         let response;
         beforeEach(() => {
-          jest.mock('./MOCK_DATA.json', () => mockDataStub);
+          jest.mock('./MOCK_DATA.json', () => mockData);
           // Act
           const { getEventById } = require('./index');
           response = getEventById(id);
@@ -37,10 +37,10 @@ describe('#database', () => {
       describe('and the id is NOT present', () => {
         // Arrange
         const id = 2;
-        const mockDataStub = [{ id: 1 }];
+        const mockData = [{ id: 1 }];
         let response;
         beforeEach(() => {
-          jest.mock('./MOCK_DATA.json', () => mockDataStub);
+          jest.mock('./MOCK_DATA.json', () => mockData);
           // Act
           const { getEventById } = require('./index');
           response = getEventById(id);
