@@ -1,5 +1,9 @@
+const express = require('express');
+
 const eventRoute = require('../features/event/event.router');
 
-module.exports = (app) => {
-  app.use('/events', eventRoute);
-};
+const router = express.Router();
+
+router.use('/events', eventRoute);
+
+module.exports = router;

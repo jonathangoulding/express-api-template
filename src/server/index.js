@@ -7,7 +7,7 @@ const app = express();
 const port = 3000;
 
 app.use(cors());
-router(app);
+app.use('/api', router);
 
 app.listen(port, () => {
   console.log(`Starting server on ${port}`);
