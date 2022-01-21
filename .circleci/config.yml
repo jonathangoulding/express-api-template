@@ -26,18 +26,12 @@ jobs:
           name: Run component tests
           command: npm run test:component
 
-  docker:
+  test-docker:
    machine: true
    steps:
      - checkout
-    #  - run: |
-    #      echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
-        #  docker run -d --name db company/proprietary-db:1.2.3
-
-     # build the application image
+    #  Get image from github packages and curl to test api is working
      - run: docker pull ghcr.io/jonathangoulding/express-api-template:main
-
-     # deploy the image
      - run: docker run -p 3000:3000 -d ghcr.io/jonathangoulding/express-api-template:main
      - run: curl localhost:3000/api/events
 
@@ -57,8 +51,9 @@ workflows:
     jobs:
       - test-unit
       - test-component
-      - docker
+      - test-docker
       - deploy:
               requires:
+                - "test-docker"
                 - "test-unit"
                 - "test-component"
