@@ -26,6 +26,20 @@ jobs:
           name: Run component tests
           command: npm run test:component
 
+  docker:
+   machine: true
+   steps:
+     - checkout
+     - run: |
+         echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
+        #  docker run -d --name db company/proprietary-db:1.2.3
+
+     # build the application image
+     - run: docker pull ghcr.io/jonathangoulding/express-api-template:main
+
+     # deploy the image
+     - run: docker run -p 3000:3000 ghcr.io/jonathangoulding/express-api-template:main
+
   deploy:
     docker:
       - image: cimg/node:16.10
@@ -42,6 +56,7 @@ workflows:
     jobs:
       - test-unit
       - test-component
+      - docker
       - deploy:
               requires:
                 - "test-unit"
