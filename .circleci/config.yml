@@ -38,7 +38,8 @@ jobs:
      - run: docker pull ghcr.io/jonathangoulding/express-api-template:main
 
      # deploy the image
-     - run: docker run -p 3000:3000 ghcr.io/jonathangoulding/express-api-template:main
+     - run: docker run -p 3000:3000 -d ghcr.io/jonathangoulding/express-api-template:main
+     - run: curl localhost:3000/api/events
 
   deploy:
     docker:
