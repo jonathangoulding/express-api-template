@@ -1,7 +1,7 @@
 
 # Express API
 <p align="left">
-<img src="https://github.com/jonathangoulding/express-api-template/actions/workflows/test.yml/badge.svg" />
+<img src="https://github.com/jonathangoulding/express-api-template/actions/workflows/main.yml/badge.svg" />
 <img src="https://img.shields.io/github/package-json/v/jonathangoulding/express-api-template?style=plastic" />
 </p>
 
