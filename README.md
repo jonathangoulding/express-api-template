@@ -1,9 +1,12 @@
 
 # Express API
 <p align="left">
+
 <img src="https://github.com/jonathangoulding/express-api-template/actions/workflows/main.yml/badge.svg" />
 <img src="https://img.shields.io/github/package-json/v/jonathangoulding/express-api-template?style=plastic" />
 </p>
+
+[![CircleCI](https://circleci.com/gh/jonathangoulding/express-api-template/tree/main.svg?style=svg)](https://circleci.com/gh/jonathangoulding/express-api-template/tree/main)
 
 This repository demonstrates how a simple rest api written in [Node](https://nodejs.org/en/) and [Express](https://expressjs.com/) can be tested using the [Jest Testing framework](https://jestjs.io/).
 
