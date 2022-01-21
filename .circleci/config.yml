@@ -26,8 +26,23 @@ jobs:
           name: Run component tests
           command: npm run test:component
 
+  deploy:
+    docker:
+      - image: cimg/node:16.10
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          name: Deploy dummy
+          command: echo "Deploy"
+
 workflows:
   CI CD Pipeline:
     jobs:
       - test-unit
       - test-component
+      - deploy:
+              requires:
+                - "test-unit"
+                - "test-component"
