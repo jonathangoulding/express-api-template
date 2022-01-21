@@ -58,3 +58,16 @@ jobs:
       - run: docker run -p 3000:3000 -d ghcr.io/jonathangoulding/express-api-template:main
       - run: sleep 15
       - run: curl http://localhost:3000/api/events
+  
+  tag-stable:
+    runs-on: ubuntu-latest
+    needs: [build-and-push-image, test-image]
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - run: docker pull ghcr.io/jonathangoulding/express-api-template:main
+      - run: docker tag ghcr.io/jonathangoulding/express-api-template:main ghcr.io/jonathangoulding/express-api-template:stable
+      - run: docker push ghcr.io/jonathangoulding/express-api-template:stable
